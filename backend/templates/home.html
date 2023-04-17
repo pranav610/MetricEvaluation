@@ -35,7 +35,7 @@
       }
 
       100% {
-        background-color: #17EAD9;
+        background-color: #F9E2AF;
       }
     }
 
@@ -45,7 +45,7 @@
       }
 
       100% {
-        background-color: #17EAD9;
+        background-color: #F9E2AF;
       }
     }
 
@@ -72,22 +72,27 @@
       position: relative;
       width: 100%;
       height: 100vh;
-      background-color: #17EAD9;
+      /* background-color: #F9E2AF; */
       color: #4B4848;
       display: flex;
       justify-content: center;
       align-items: center;
       transition: background-color 1.25s ease-in-out;
+      background-image: url('https://images.pexels.com/photos/3912976/pexels-photo-3912976.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
     }
 
     body.is-focus {
-      background-color: #17EAD9;
+      background-color: #F9E2AF;
     }
 
     .title-container {
       position: absolute;
-      top: 38%;
+      top: 50%;
       left: 50%;
+      height: 100%;
       width: 80%;
       margin: 0 auto;
       text-align: center;
@@ -96,8 +101,12 @@
     }
 
     .title-container .title {
-      margin: 0;
-      color: #6078EA;
+      margin: 0 5rem;
+      color: #77037B;
+      padding: 2rem;
+      background-color: #F9E2AF;
+      width: 85%;
+      border-radius: 2rem;
     }
 
     .title-container .title-down {
@@ -105,7 +114,7 @@
       transition: transform 0.3s ease;
       transition-delay: 0.25s;
       margin: 0;
-      color: #6078EA;
+      color: #77037B;
     }
 
     .is-focus .title-container .title {
@@ -125,7 +134,7 @@
       padding: 0;
       margin: 0;
       border: 0;
-      width: 330px;
+      width: 50vw;
       height: 40px;
     }
 
@@ -161,66 +170,10 @@
       height: 100%;
       opacity: 0;
       border: 2px solid transparent;
-      border-top-color: #6078EA;
-      border-left-color: #6078EA;
-      border-bottom-color: #6078EA;
+      border-top-color: #77037B;
+      border-left-color: #77037B;
+      border-bottom-color: #77037B;
       transition: opacity 0.2s ease;
-    }
-
-    .icon-close .x-up {
-      position: relative;
-      width: 100%;
-      height: 50%;
-    }
-
-    .icon-close .x-up:before {
-      content: "";
-      position: absolute;
-      bottom: 2px;
-      left: 3px;
-      width: 50%;
-      height: 2px;
-      background-color: #6078EA;
-      transform: rotate(45deg);
-    }
-
-    .icon-close .x-up:after {
-      content: "";
-      position: absolute;
-      bottom: 2px;
-      right: 0px;
-      width: 50%;
-      height: 2px;
-      background-color: #6078EA;
-      transform: rotate(-45deg);
-    }
-
-    .icon-close .x-down {
-      position: relative;
-      width: 100%;
-      height: 50%;
-    }
-
-    .icon-close .x-down:before {
-      content: "";
-      position: absolute;
-      top: 5px;
-      left: 4px;
-      width: 50%;
-      height: 2px;
-      background-color: #6078EA;
-      transform: rotate(-45deg);
-    }
-
-    .icon-close .x-down:after {
-      content: "";
-      position: absolute;
-      top: 5px;
-      right: 1px;
-      width: 50%;
-      height: 2px;
-      background-color: #6078EA;
-      transform: rotate(45deg);
     }
 
     .is-type .icon-close:before {
@@ -263,8 +216,8 @@
       width: 50%;
       height: 50%;
       opacity: 1;
-      border-radius: 50%;
-      border: 3px solid #c7d0f8;
+      border-radius: 5rem;
+      border: 3px solid #1138e4;
       transition: opacity 0.25s ease, transform 0.43s cubic-bezier(0.694, 0.048, 0.335, 1);
     }
 
@@ -277,7 +230,7 @@
       border-radius: 3px;
       transform: rotate(-45deg);
       height: 10px;
-      background-color: #c7d0f8;
+      background-color: #1138e4;
     }
 
     .field {
@@ -286,7 +239,7 @@
       height: 100%;
       padding: 10px 20px;
       background: white;
-      border-radius: 3px;
+      border-radius: 2rem;
       box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
       transition: all 0.4s ease;
     }
@@ -300,6 +253,15 @@
       opacity: 1;
       transform: translateX(0);
     }
+
+    .metric {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #a99fe5;
+      text-align: center;
+      margin: 0;
+      padding: 5rem;
+    }
   </style>
 
 </head>
@@ -307,13 +269,14 @@
 <body>
   <!-- partial:index.partial.html -->
   <div class="title-container">
-    <h1 class="title">Enter a string</h1>
+    <h1 class="metric">Metric Reporter</h1>
+    <h1 class="title">Enter a Query to see the results for:</h1>
   </div>
 
   <form method="post">
     {% csrf_token %}
     <fieldset class="field-container">
-      <input type="text" name="query" placeholder="Query..." class="field is-focus" />
+      <input type="text" name="query" placeholder="" class="field is-focus" />
       <div class="icons-container">
         <button type="submit" style="cursor: pointer;" class="icon-search"></button>
       </div>
@@ -321,6 +284,12 @@
   </form>
   <!-- partial -->
   <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+
+  {% if success == 0 %}
+  <script>
+    alert("Please enter a valid query")
+    </script>
+  {% endif %}
 
 </body>
 

@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+  <body>
+  
+    <style>
+
+.show-results{
+    margin: 4rem;
+}
+.navbar{
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+.table .tr {
+  margin: 1rem 0 !important;
+}
+    </style>
+    
+    <div class="show-results">
+      <nav class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Query - </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <i><a class="nav-link active" aria-current="page">{{ query }}</a></i>
+              </li>
+            </ul>
+            <div class="d-flex" role="search">
+              <a href="{% url 'query' %}" class="btn btn-info" role="button">Home</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+  
+      <table class="table table-light table-hover">
+        <thead>
+          <tr class="tr">
+            <th scope="col">#</th>
+            <th scope="col">Metric To Be Evaluated</th>
+            <th scope="col">Evaluation Performance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tr">
+            <th scope="row">1</th>
+            <td>Total time</td>
+            <td>{{ total_time }} msec</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">2</th>
+            <td>Mean time</td>
+            <td>{{ mean_time }} msec</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">3</th>
+            <td>Rows returned</td>
+            <td>{{ rows }} rows</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">4</th>
+            <td>Shared blocks hit</td>
+            <td>{{ shared_blks_hit }} blocks</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">5</th>
+            <td>Shared blocks read</td>
+            <td>{{ shared_blks_read }} blocks</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">6</th>
+            <td>Shared blocks dirtied</td>
+            <td>{{ shared_blks_dirtied }} blocks</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">7</th>
+            <td>Shared blocks written</td>
+            <td>{{ shared_blks_written }} blocks</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">8</th>
+            <td>Local blocks hit</td>
+            <td>{{ local_blks_hit }} blocks</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">9</th>
+            <td>Local blocks read</td>
+            <td>{{ local_blks_read }} blocks</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">10</th>
+            <td>Local blocks dirtied</td>
+            <td>{{ local_blks_dirtied }} blocks</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">11</th>
+            <td>Local blocks written</td>
+            <td>{{ local_blks_written }} blocks</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">12</th>
+            <td>Temp blocks read</td>
+            <td>{{ temp_blks_read }} blocks</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">13</th>
+            <td>Temp blocks written</td>
+            <td>{{ temp_blks_written }} blocks</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">14</th>
+            <td>Block read time</td>
+            <td>{{ blk_read_time }} msec</td>
+          </tr>
+          <tr class="tr">
+            <th scope="row">15</th>
+            <td>Block write time</td>
+            <td>{{ blk_write_time }} msec</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
+    
+
+  </body>
+</html>
