@@ -2,11 +2,11 @@
 This is the repository for the course term project of Database Management Laboratory CS39202 for the Spring semester 2022-23, at IIT Kharagpur.
 ## Contributors
 
-- Pranav Kulkarni
-- Utsav Mehta
-- Swapnil Yasasvi
-- Sidharth Vishwakarma
-- Khush Bajaj
+- [Pranav Kulkarni](https://github.com/pranav610/)
+- [Utsav Mehta](https://github.com/UtsavMehta1902/)
+- [Swapnil Yasasvi](https://github.com/linpawsivsasay123)
+- [Sidharth Vishwakarma](https://github.com/sidvisw)
+- [Khush Bajaj](https://www.linkedin.com/in/khush-bajaj-a8601224a)
 
 ## 1. Installation  
 1st create python virtual environment and activate it.  
